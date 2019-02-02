@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head><meta content="text/html; charset=ISO-8859-1" http-equiv="content-type">
+<title>Design Guidance Report</title>
+<link rel="stylesheet" href="file:///opt/Xilinx/SDx/2018.2.op2258646/data/rulecheck/rulecheck.css">
+<script type="text/javascript" src="file:///opt/Xilinx/SDx/2018.2.op2258646/data/rulecheck/rulecheck.js"></script>
+</head><body>
+<center><h1>Design Guidance Report</h1></center><center><table class="header" border="0">
+<tr><td><b>Copyright</b></td><td>Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.</td></tr>
+<tr><td><b>Tool Version</b></td><td> v. (lin64) Build 0 </td></tr>
+<tr><td><b>Date</b></td><td>Tue Jan 29 04:24:13 2019</td></tr>
+<tr><td><b>Host</b></td><td>ip-172-31-16-7.ec2.internal running 64-bit CentOS Linux release 7.6.1810 (Core)</td></tr>
+<tr><td><b>Command</b></td><td>xocc --xp param:compiler.lockFlowCritSlackThreshold=0 --xp vivado_param:bd.disablePrefixForFaasIntf=1 --xp vivado_param:hd.routingContainmentAreaExpansion=true --xp vivado_param:hd.supportClockNetCrossDiffReconfigurablePartitions=1 --xp vivado_param:bitstream.enablePR=4123 --xp vivado_param:physynth.ultraRAMOptOutput=false --xp vivado_prop:run.__KERNEL__.{STEPS.SYNTH_DESIGN.ARGS.MAX_URAM_CASCADE_HEIGHT}={1} --xp vivado_param:synth.elaboration.rodinMoreOptions={rt::set_parameter disableOregPackingUram true}  -t hw --platform /home/centos/src/project_data/aws-fpga/SDAccel/aws_platform/xilinx_aws-vu9p-f1-04261818_dynamic_5_0/xilinx_aws-vu9p-f1-04261818_dynamic_5_0.xpfm --save-temps -l --nk vadd:1 -oxclbin/vadd.hw.xilinx_aws-vu9p-f1-04261818_dynamic_5_0.xclbin xclbin/vadd.hw.xilinx_aws-vu9p-f1-04261818_dynamic_5_0.xo --xp param:compiler.useHlsGpp=1 </td></tr>
+</table></center><br>
+<table class="toc" border="1"><tr><td><b>Table of Contents</b></td></tr>
+<tr><td><a href="#REPORT SUMMARY">1 REPORT SUMMARY</a></tr></td>
+<tr><td><a href="#VIOLATION DETAILS">2 VIOLATION DETAILS</a></tr></td>
+<tr><td><a href="#PERFORMANCE CHECKS MET">3 PERFORMANCE CHECKS MET</a></tr></td>
+</table>
+<a name="REPORT SUMMARY"></a><h1>1 REPORT SUMMARY</h1>
+<pre>Violations found: 2
+</pre>
+<pre>Rule Specs Violated: 1
+</pre>
+<pre>Rules Met: 1
+</pre>
+<pre>Rule Specs Met: 1
+</pre>
+<a name="VIOLATION DETAILS"></a><h1>2 VIOLATION DETAILS</h1>
+<table border="1">
+<caption>Items that may require attention</caption>
+<tr class="ns-sort">
+<th align="left">Id</th>
+<th align="left">Name</th>
+<th align="left">Severity</th>
+<th align="left" width="170">Full Name</th>
+<th align="left">Categories</th>
+<th align="left" width="350">Details</th>
+<th align="left" width="380">Resolution</th>
+</tr>
+<tr>
+<td align="left">1</td>
+<td align="left">AUTO-FREQ-SCALING-08</td>
+<td align="left">ADVISORY</td>
+<td align="left">Auto frequency scaling - Higher frequency possible</td>
+<td align="left">Accelerator.Kernel.Performance</td>
+<td align="left">For clock clk_extra_b0, the auto scaled frequency 265.0 MHz exceeds the original specified frequency. The compiler will select the original specified frequency of 250.0 MHz.</td>
+<td align="left">The <a href="https://www.xilinx.com/support/documentation/sw_manuals/xilinx2017_2/ug1234-ref-design-dev-board-accel-kcu1500.pdf#G8.373799">automatic frequency scaling</a> feature allows user kernels to operate in hardware, even if at a lower frequency than intended. In this case the clock may in fact be able to run at a higher frequency than specified. You may want to consider setting the <a href="https://www.xilinx.com/support/documentation/sw_manuals/xilinx2017_2/ug1234-ref-design-dev-board-accel-kcu1500.pdf#G8.373427">clock frequency</a> higher for better performance.</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left">AUTO-FREQ-SCALING-08</td>
+<td align="left">ADVISORY</td>
+<td align="left">Auto frequency scaling - Higher frequency possible</td>
+<td align="left">Accelerator.Kernel.Performance</td>
+<td align="left">For clock clk_main_a0, the auto scaled frequency 257.9 MHz exceeds the original specified frequency. The compiler will select the original specified frequency of 250.0 MHz.</td>
+<td align="left">The <a href="https://www.xilinx.com/support/documentation/sw_manuals/xilinx2017_2/ug1234-ref-design-dev-board-accel-kcu1500.pdf#G8.373799">automatic frequency scaling</a> feature allows user kernels to operate in hardware, even if at a lower frequency than intended. In this case the clock may in fact be able to run at a higher frequency than specified. You may want to consider setting the <a href="https://www.xilinx.com/support/documentation/sw_manuals/xilinx2017_2/ug1234-ref-design-dev-board-accel-kcu1500.pdf#G8.373427">clock frequency</a> higher for better performance.</td>
+</tr>
+</table>
+<br>
+<a name="PERFORMANCE CHECKS MET"></a><h1>3 PERFORMANCE CHECKS MET</h1>
+<table border="1">
+<caption>Items that offer design performance insight</caption>
+<tr class="ns-sort">
+<th align="left">Id</th>
+<th align="left">Name</th>
+<th align="left" width="170">Full Name</th>
+<th align="left">Categories</th>
+<th align="left">Actual</th>
+<th align="left">Threshold</th>
+<th align="left" width="350">Details</th>
+<th align="left" width="320">Rule Description</th>
+</tr>
+<tr>
+<td align="left">3</td>
+<td align="left">PLATFORM-CLOCK-DOMAINS-01</td>
+<td align="left">Runtime controllable clock domains - Achieved clock frequency (MHz)</td>
+<td align="left">System.Performance.Accelerator</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">The compiler selected the following frequencies for the runtime controllable kernel clock(s) and scalable system clock(s): 
+Kernel: clk_extra_b0 = 250.0 MHz 
+Kernel: clk_extra_c0 = 500.0 MHz 
+System: clk_main_a0 = 250.0 MHz </td>
+<td align="left"><html> Kernel clocks (and system clocks for some platforms) are scalable; they can preserve functionality at the cost of performance by running at a lower frequency than requested. To be scalable, a clock must be driven by an MMCM where the control registers for the MMCM can be set by the runtime over AXI4-Lite. This item shows the final runtime controlled frequencies for the scalable clocks.</html></td>
+</tr>
+</table>
+<br>
+</body></html>

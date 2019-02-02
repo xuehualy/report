@@ -1,0 +1,39 @@
+===============================================================================
+Version:    xocc v2018.2.op (64-bit)
+Build:      SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
+Copyright:  Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+Created:    Tue Jan 29 04:24:13 2019
+===============================================================================
+
+-------------------------------------------------------------------------------
+Design Name:             vadd.hw.xilinx_aws-vu9p-f1-04261818_dynamic_5_0
+Target Device:           xilinx:aws-vu9p-f1-04261818:dynamic:5.0
+Target Clock:            250.000000MHz
+Total number of kernels: 1
+-------------------------------------------------------------------------------
+
+Kernel Summary
+Kernel Name  Type  Target              OpenCL Library                                   Compute Units
+-----------  ----  ------------------  -----------------------------------------------  -------------
+vadd         c     fpga0:OCL_REGION_0  vadd.hw.xilinx_aws-vu9p-f1-04261818_dynamic_5_0  1
+
+
+-------------------------------------------------------------------------------
+OpenCL Binary:     vadd.hw.xilinx_aws-vu9p-f1-04261818_dynamic_5_0
+Kernels mapped to: clc_region
+
+Timing Information (MHz)
+Compute Unit  Kernel Name  Module Name  Target Frequency  Estimated Frequency
+------------  -----------  -----------  ----------------  -------------------
+vadd_1        vadd         vadd         250               342.465759
+
+Latency Information (clock cycles)
+Compute Unit  Kernel Name  Module Name  Start Interval  Best Case  Avg Case  Worst Case
+------------  -----------  -----------  --------------  ---------  --------  ----------
+vadd_1        vadd         vadd         3315            3314       3314      3314
+
+Area Information
+Compute Unit  Kernel Name  Module Name  FF    LUT   DSP  BRAM
+------------  -----------  -----------  ----  ----  ---  ----
+vadd_1        vadd         vadd         4975  3472  0    60
+-------------------------------------------------------------------------------
